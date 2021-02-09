@@ -31,7 +31,7 @@ import java.util.Scanner;
  *          note:
  *              slower than using readCsvUsingBufferedReader
  */
-public class TransformCsvToJson {
+public class TransformCsvToJson implements Closeable {
     // TODO: first line describes the terms
     // TODO: if empty line then skip
     // TODO: if empty value then empty String
@@ -197,4 +197,9 @@ public class TransformCsvToJson {
         // placeholder return statement
         return document;
     } // readCsvUsingBufferedReader end
+
+    @Override
+    public void close() throws IOException {
+        // TODO: implement logic and modify the rest
+    } // close end
 } // TransformCsvToJson end
