@@ -1,5 +1,9 @@
 package service.util;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import service.business.Document;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -51,7 +55,7 @@ public class TransformCsvToJson {
         }
         // readCsvUsingBufferedReader test
         System.out.println("Calling readCsvUsingBufferedReader :");
-        if (readCsvUsingBufferedReader(testPath) == -1) {
+        if (readCsvUsingBufferedReader(testPath) == null) {
             System.out.println("Problem occurred during reading");
         } else {
             System.out.println("No problems were occurred during reading");
@@ -137,21 +141,25 @@ public class TransformCsvToJson {
      *  returns number of lines redden from file, -1 if error.
      * @param filePath : A String that represents file path of the csv file.
      */
-    private static long readCsvUsingBufferedReader(String filePath) {
+    public static Document readCsvUsingBufferedReader(String filePath) {
         // TODO: do the same logic for file verification as ScannerRead
         // TODO: do the long return logic as ScannerRead
+        Document document = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
             String reddenLine = reader.readLine();
-            //String delimiter = ","; // "," as csv file
+            String delimiter = ","; // "," as csv file
 
             while (reddenLine != null) {
 
                 System.out.println("Imported data : " + reddenLine);
 
-                // String [] importedData = reddenLine.split(delimiter);
+                String [] importedData = reddenLine.split(delimiter);
 
+                System.out.println("Document creation -> Waiting...");
+                document = new Document(importedData);
+                System.out.println("Document created -> OK");
                 // V0 :
 
                 // if we make something
@@ -164,11 +172,11 @@ public class TransformCsvToJson {
                 // update reddenLine
 
                 // if we can use maven dependency Gson + only one (remove the lines for all of them - below)
-                //System.out.println("Table : " + new Gson().toJson(something));
+                System.out.println("Document (first print) : " + new Gson().toJson(document));
                 reddenLine = reader.readLine();
             }
             // if we can use maven dependency Gson + all of them (remove the lines for one of them - top)
-            // System.out.println("Table : " + new GsonBuilder().setPrettyPrinting().create().toJson(somethings));
+            System.out.println("Document (second print) : " + new GsonBuilder().setPrettyPrinting().create().toJson(document));
         } catch (IOException ioException) {
             // debug info
             ioException.printStackTrace();
@@ -187,7 +195,7 @@ public class TransformCsvToJson {
         */
 
         // placeholder return statement
-        return 0;
+        return document;
     } // readCsvUsingBufferedReader end
 
 } // TransformCsvToJson end
