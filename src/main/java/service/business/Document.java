@@ -59,7 +59,7 @@ public class Document { // Column
     public static void main(String [] args) {
         // printDataArrayList();
         // Csv file's path to test
-        String testPath = "samples/test.csv";
+        String testPath = "samples/yellow_tripdata_2009-01.csv";
         // readCsvUsingBufferedReader test
         System.out.println("Calling readCsvUsingBufferedReader :");
         Document document = TransformCsvToJson.readCsvUsingBufferedReader(testPath);
