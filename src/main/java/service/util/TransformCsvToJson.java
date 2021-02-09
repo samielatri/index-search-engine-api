@@ -19,15 +19,20 @@ public class TransformCsvToJson {
      * @param args : an array of String meant to hold passed command line arguments.
      */
     public static void main(String [] args) {
-        // System.out.println("service.util.TransformCsvToJson : main call");
-        readCsvUsingScanner("samples/test.csv");
-        // readCsvUsingBufferReader("samples/addresses");
-    }
+        // debug info
+        System.out.println("service.util.TransformCsvToJson : main call");
+        // Csv file's path to test
+        String testPath = "samples/test.csv";
+        // readCsvUsingScanner test
+        readCsvUsingScanner(testPath);
+        // readCsvUsingBufferReader test
+        readCsvUsingBufferedReader(testPath);
+    } // main end
 
     /**
      * readCsvUsingScanner :
      *  static method to read csv file using Scanner.
-     *  returns number of lines readen from file, -1 if error.
+     *  returns number of lines redden from file, -1 if error.
      * @param filePath : String that represents file path of the csv file.
      */
     private static long readCsvUsingScanner(String filePath) {
@@ -37,8 +42,8 @@ public class TransformCsvToJson {
         // file
         File file = new File(filePath);
 
-        // number of lines readen
-        long readenLinesNumber = 0;
+        // number of lines redden
+        long reddenLinesNumber = 0;
 
         try {
             // use Scanner InputStream to open file
@@ -48,7 +53,7 @@ public class TransformCsvToJson {
             while (scanner.hasNext()) {
                 // TODO : option to neglect header if needed
                 System.out.println("User data : " + scanner.next());
-                ++readenLinesNumber;
+                ++ reddenLinesNumber;
             }
 
             // close file using Scanner InputStream
@@ -60,48 +65,52 @@ public class TransformCsvToJson {
             System.out.println("/!\\ Error while reading file /!\\");
         } finally {
             // custom message to inform user about the error
-            String msg = "";
+            String outputMessage = "";
 
             // file does not exist
             if(!file.exists()) {
-                msg += "\tThe file does not exist.";
-                msg += "\n\tPlease verify that the path of the file and that it exists :";
+                outputMessage += "\tThe file does not exist.";
+                outputMessage += "\n\tPlease verify that the path of the file and that it exists :";
                 File currentDirectory = new File(".");
-                msg += "\n\tCurrent directory : " + currentDirectory.getAbsolutePath();
-                msg += "\n\tThe given path is '" + filePath + "'";
-            }
+                outputMessage += "\n\tCurrent directory : " + currentDirectory.getAbsolutePath();
+                outputMessage += "\n\tThe given path is '" + filePath + "'";
+            } // if-end block end
 
             // file is a directory
             if(file.isDirectory()){
-                msg += "\tThe file is a directory.";
-            }
+                outputMessage += "\tThe file is a directory.";
+            } // if-end block end
 
             // file cannot be read
             if(!file.canRead()){
-                msg += "\tThe file cannot be read.";
-                msg += "\tPlease verify that the read rights and that the file is not open by another program.";
-            }
+                outputMessage += "\tThe file cannot be read.";
+                outputMessage += "\tPlease verify that the read rights and that the file is not open by another program.";
+            } // if-end block end
 
-            // file was read successfully
-            if (msg.length() == 0) {
-                msg += "File was read successfully";
-                msg += readenLinesNumber + " lines were readen";
-            } else {
-                readenLinesNumber = -1;
-            }
+            // generic redden successfully or not file message and reddenLinesNumber update
+            if (outputMessage.length() == 0) { // file was read successfully
+                outputMessage += "File was read successfully";
+                outputMessage += reddenLinesNumber + " lines were readen";
+            } else { // file was not read successfully
+                reddenLinesNumber = -1;
+            } // if-else block end
 
             // output message to user
-            System.out.println(msg);
-        }
+            System.out.println(outputMessage);
+        } // try-catch-finally block end
 
-        return readenLinesNumber;
-    }
+        return reddenLinesNumber;
+    } // readCsvUsingScanner end
 
     /**
-     * readCsvUsingBufferReader : static method to read csv file using BufferReader.
+     * readCsvUsingBufferedReader :
+     *  static method to read csv file using BufferedReader.
+     *  returns number of lines redden from file, -1 if error.
      * @param filePath : A String that represents file path of the csv file.
      */
-    private static void readCsvUsingBufferReader(String filePath) {
+    private static long readCsvUsingBufferedReader(String filePath) {
+        // TODO: do the same logic for file verification as ScannerRead
+        // TODO: do the long return logic as ScannerRead
         String reddenLine = "";
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
@@ -112,15 +121,23 @@ public class TransformCsvToJson {
                 System.out.println("User data : " + reddenLine);
             }
         } catch (IOException ioException) {
+            // debug info
             ioException.printStackTrace();
+            // placeholder
+            System.out.println("Exception !");
+        } finally {
+            // placeholder
+            System.out.println("it's not the end of the world :p");
         }
         /*
-            catch (FileNotFoundException fileNotFoundException) {
+            catch (FileNotFoundException fileNotFoundException) { // FileReader constructor call
                 fileNotFoundException.printStackTrace();
-            } catch (IOException ioException) {
+            } catch (IOException ioException) { // readLine constructor call
                 ioException.printStackTrace();
             }
         */
-    }
-}
 
+        // placeholder return statement
+        return 0;
+    } // readCsvUsingBufferedReader end
+} // TransformCsvToJson end
