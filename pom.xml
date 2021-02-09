@@ -19,7 +19,6 @@
         <url>https://github.com/samielatri</url>
     </organization>
 
-
     <licenses>
         <license>
             <name>GNU General Public License v3 (GPLv3)</name>
@@ -45,26 +44,14 @@
     </prerequisites>
 
     <properties>
-
         <!-- project version -->
         <projectVersion>1.0-SNAPSHOT</projectVersion>
 
         <!-- dependencies versions -->
-        <mavenVersion>3.6.3</mavenVersion>
         <junitVersion>5.7.1</junitVersion>
-
     </properties>
 
-
     <dependencies>
-
-        <!-- maven : https://mvnrepository.com/artifact/org.apache.maven/maven-artifact -->
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-artifact</artifactId>
-            <version>${mavenVersion}</version>
-        </dependency>
-
         <!-- junit : https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -72,7 +59,5 @@
             <version>${junitVersion}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
-
 </project>
