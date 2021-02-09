@@ -1,5 +1,7 @@
 package service.business;
 
+import java.util.ArrayList;
+
 /**
  * Created bu PacLab
  * User: sami
@@ -10,6 +12,7 @@ package service.business;
  * Class name: Term
  * Class description: A Term is one of the components composing a Document.
  */
-public class Term {
+public class Term { // index
     // TODO: implement Map logic
+    ArrayList<String> stringArrayList;
 }

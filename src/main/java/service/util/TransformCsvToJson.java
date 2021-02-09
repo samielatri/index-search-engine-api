@@ -12,6 +12,20 @@ import java.util.Scanner;
  *
  * Class name: TransformCsvToJson
  * Class description: A TransformCsvToJson is a tool to transform Csv to Json.
+ * Class members:
+ *  Class attributes: none
+ *  Class methods:
+ *      readCsvUsingBufferedReader :
+ *          use:
+ *              best use to get strings
+ *          note:
+ *              faster than readCsvUsingScanner
+ *              as it only reads one character per stream (1 byte per call)
+ *      readCsvUsingScanner :
+ *          use:
+ *              best use to get specific data types or regular expressions from csv file
+ *          note:
+ *              slower than using readCsvUsingBufferedReader
  */
 public class TransformCsvToJson {
     // TODO: first line describes the terms
@@ -175,4 +189,5 @@ public class TransformCsvToJson {
         // placeholder return statement
         return 0;
     } // readCsvUsingBufferedReader end
+
 } // TransformCsvToJson end
