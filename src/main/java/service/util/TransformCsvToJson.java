@@ -1,7 +1,6 @@
 package service.util;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -103,7 +102,25 @@ public class TransformCsvToJson {
      * @param filePath : A String that represents file path of the csv file.
      */
     private static void readCsvUsingBufferReader(String filePath) {
-        // TODO : implement logic
+        String reddenLine = "";
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            // reddenLine = reader.readLine()
+
+            while ((reddenLine = reader.readLine()) != null) {
+                System.out.println("User data : " + reddenLine);
+            }
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+        /*
+            catch (FileNotFoundException fileNotFoundException) {
+                fileNotFoundException.printStackTrace();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        */
     }
 }
 
