@@ -1,5 +1,7 @@
 package service.business;
 
+import java.util.ArrayList;
+
 /**
  * Created bu PacLab
  * User: sami
@@ -12,4 +14,7 @@ package service.business;
  */
 public class Map {
     // TODO: implement Map logic
+    ArrayList<Term> termArrayList; // used to index vertical vectors (columns) of Map
+    ArrayList<Document> documentArrayList; // used to index horizontal vectors (lines) of Map
+
 }

@@ -1,5 +1,7 @@
 package service.business;
 
+import java.util.ArrayList;
+
 /**
  * Created bu PacLab
  * User: sami
@@ -12,4 +14,5 @@ package service.business;
  */
 public class Term {
     // TODO: implement Map logic
+    ArrayList<String> stringArrayList;
 }
