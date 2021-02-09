@@ -24,9 +24,19 @@ public class TransformCsvToJson {
         // Csv file's path to test
         String testPath = "samples/test.csv";
         // readCsvUsingScanner test
-        readCsvUsingScanner(testPath);
-        // readCsvUsingBufferReader test
-        readCsvUsingBufferedReader(testPath);
+        System.out.println("Calling readCsvUsingScanner :");
+        if (readCsvUsingScanner(testPath) == -1) {
+            System.out.println("Problem occurred during reading");
+        } else {
+            System.out.println("No problems were occurred during reading");
+        }
+        // readCsvUsingBufferedReader test
+        System.out.println("Calling readCsvUsingBufferedReader :");
+        if (readCsvUsingBufferedReader(testPath) == -1) {
+            System.out.println("Problem occurred during reading");
+        } else {
+            System.out.println("No problems were occurred during reading");
+        }
     } // main end
 
     /**
@@ -111,14 +121,14 @@ public class TransformCsvToJson {
     private static long readCsvUsingBufferedReader(String filePath) {
         // TODO: do the same logic for file verification as ScannerRead
         // TODO: do the long return logic as ScannerRead
-        String reddenLine = "";
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
-            // reddenLine = reader.readLine()
+            String reddenLine = reader.readLine();
 
-            while ((reddenLine = reader.readLine()) != null) {
+            while (reddenLine != null) {
                 System.out.println("User data : " + reddenLine);
+                reddenLine = reader.readLine();
             }
         } catch (IOException ioException) {
             // debug info
