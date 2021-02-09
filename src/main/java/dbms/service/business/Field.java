@@ -1,4 +1,4 @@
-package service.business;
+package dbms.service.business;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * User: sami
  * Date: 2/10/2021
  * Time: 11:38 AM
- * Package: service.business
+ * Package: dbms.service.business
  */
 public interface Field extends Serializable {
 

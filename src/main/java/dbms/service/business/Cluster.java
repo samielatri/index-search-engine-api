@@ -1,7 +1,7 @@
-package service.business;
+package dbms.service.business;
 
 import javafx.util.Pair;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -9,7 +9,7 @@ import java.util.List;
  * User: sami
  * Date: 2/9/2021
  * Time: 2:39 PM
- * Package: service.business
+ * Package: dbms.service.business
  *
  * Class name: Map
  * Class description: A Map is a structured indexed representation of Terms and Documents.

@@ -1,4 +1,4 @@
-package service.business;
+package dbms.service.business;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Objects;
  * User: sami
  * Date: 2/9/2021
  * Time: 09:34 PM
- * Package: service.business
+ * Package: dbms.service.business
  */
 public class Header {
     // attributes

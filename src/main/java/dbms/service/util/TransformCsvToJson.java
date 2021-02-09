@@ -1,8 +1,8 @@
-package service.util;
+package dbms.service.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import service.business.Document;
+import dbms.service.business.Document;
 
 import java.io.*;
 import java.util.Scanner;
@@ -12,7 +12,7 @@ import java.util.Scanner;
  * User: sami
  * Date: 2/9/2021
  * Time: 3:02 PM
- * Package: service.util
+ * Package: dbms.service.util
  *
  * Class name: TransformCsvToJson
  * Class description: A TransformCsvToJson is a tool to transform Csv to Json.
@@ -43,7 +43,7 @@ public class TransformCsvToJson implements Closeable {
      */
     public static void main(String [] args) {
         // debug info
-        System.out.println("service.util.TransformCsvToJson : main call");
+        System.out.println("dbms.service.util.TransformCsvToJson : main call");
         // Csv file's path to test
         String testPath = "samples/test.csv";
         // readCsvUsingScanner test
@@ -70,7 +70,7 @@ public class TransformCsvToJson implements Closeable {
      */
     private static long readCsvUsingScanner(String filePath) {
         // debug info
-        System.out.println("service.util.TransformCsvToJson : readCsvUsingScanner call");
+        System.out.println("dbms.service.util.TransformCsvToJson : readCsvUsingScanner call");
 
         // file
         File file = new File(filePath);
