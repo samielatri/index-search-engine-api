@@ -9,7 +9,7 @@
     <inceptionYear>2021</inceptionYear>
     <groupId>com.paclab.pacsearch</groupId>
     <artifactId>pacsearch</artifactId>
-    <version>${projectVersion}</version>
+    <version>${project.version}</version>
     <name>PacSearch</name>
     <description>PacSearch is an index search engine</description>
     <url>https://github.com/samielatri/pacsearch</url>
@@ -44,11 +44,20 @@
     </prerequisites>
 
     <properties>
-        <!-- project version -->
-        <projectVersion>1.0-SNAPSHOT</projectVersion>
+        <!-- java -->
+        <javaVersion>1.8</javaVersion>
+
+        <!-- maven compiler -->
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- project -->
+        <project.version>1.0-SNAPSHOT</project.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependencies versions -->
-        <junitVersion>5.7.1</junitVersion>
+        <junit.version>5.7.1</junit.version>
     </properties>
 
     <dependencies>
@@ -56,8 +65,23 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${junitVersion}</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>${javaVersion}</source>
+                    <target>${javaVersion}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

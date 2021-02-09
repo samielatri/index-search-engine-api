@@ -90,7 +90,7 @@ public class TransformCsvToJson {
             // generic redden successfully or not file message and reddenLinesNumber update
             if (outputMessage.length() == 0) { // file was read successfully
                 outputMessage += "File was read successfully";
-                outputMessage += reddenLinesNumber + " lines were readen";
+                outputMessage += "\n" + reddenLinesNumber + " lines were redden";
             } else { // file was not read successfully
                 reddenLinesNumber = -1;
             } // if-else block end
