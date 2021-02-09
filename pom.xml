@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- project -->
+    <inceptionYear>2021</inceptionYear>
+    <groupId>com.paclab.pacsearch</groupId>
+    <artifactId>pacsearch</artifactId>
+    <version>${projectVersion}</version>
+    <name>PacSearch</name>
+    <description>PacSearch is an index search engine</description>
+    <url>https://github.com/samielatri/pacsearch</url>
+
+    <organization>
+        <name>PacLab</name>
+        <url>https://github.com/samielatri</url>
+    </organization>
+
+
+    <licenses>
+        <license>
+            <name>GNU General Public License v3 (GPLv3)</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/samielatri/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>samielatri</id>
+            <name>Sami Elatri</name>
+            <email>samielatri.pro [at] gmail [dot] com</email>
+        </developer>
+    </developers>
+
+    <prerequisites>
+        <maven>3.6.3</maven>
+    </prerequisites>
+
+    <properties>
+
+        <!-- project version -->
+        <projectVersion>1.0-SNAPSHOT</projectVersion>
+
+        <!-- dependencies versions -->
+        <mavenVersion>3.6.3</mavenVersion>
+        <junitVersion>5.7.1</junitVersion>
+
+    </properties>
+
+
+    <dependencies>
+
+        <!-- maven : https://mvnrepository.com/artifact/org.apache.maven/maven-artifact -->
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-artifact</artifactId>
+            <version>${mavenVersion}</version>
+        </dependency>
+
+        <!-- junit : https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junitVersion}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
