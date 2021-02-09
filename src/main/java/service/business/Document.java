@@ -11,5 +11,5 @@ package service.business;
  * Class description : A Document is a collection of non structured data.
  */
 public class Document {
-    // TODO: implement Map logic
+    // TODO: implement Document logic
 }

@@ -14,6 +14,11 @@ import java.util.Scanner;
  * Class description: A TransformCsvToJson is a tool to transform Csv to Json.
  */
 public class TransformCsvToJson {
+    // TODO: first line describes the terms
+    // TODO: if empty line then skip
+    // TODO: if empty value then empty String
+    // TODO: a document is a line of csv file
+
     /**
      * main : main entry of TransformCsvToJson class to test member methods of the class.
      * @param args : an array of String meant to hold passed command line arguments.
@@ -125,11 +130,31 @@ public class TransformCsvToJson {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
             String reddenLine = reader.readLine();
+            //String delimiter = ","; // "," as csv file
 
             while (reddenLine != null) {
-                System.out.println("User data : " + reddenLine);
+
+                System.out.println("Imported data : " + reddenLine);
+
+                // String [] importedData = reddenLine.split(delimiter);
+
+                // V0 :
+
+                // if we make something
+                // something_type something = new Document(
+                // importedData[0],
+                // importedData[1],
+                // ...
+                // );
+
+                // update reddenLine
+
+                // if we can use maven dependency Gson + only one (remove the lines for all of them - below)
+                //System.out.println("Table : " + new Gson().toJson(something));
                 reddenLine = reader.readLine();
             }
+            // if we can use maven dependency Gson + all of them (remove the lines for one of them - top)
+            // System.out.println("Table : " + new GsonBuilder().setPrettyPrinting().create().toJson(somethings));
         } catch (IOException ioException) {
             // debug info
             ioException.printStackTrace();
@@ -138,7 +163,7 @@ public class TransformCsvToJson {
         } finally {
             // placeholder
             System.out.println("it's not the end of the world :p");
-        }
+        } // try-catch-finally block end
         /*
             catch (FileNotFoundException fileNotFoundException) { // FileReader constructor call
                 fileNotFoundException.printStackTrace();
