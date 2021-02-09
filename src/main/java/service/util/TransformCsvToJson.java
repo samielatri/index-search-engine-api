@@ -48,7 +48,7 @@ public class TransformCsvToJson {
             // read file using Scanner InputStream
             while (scanner.hasNext()) {
                 // TODO : option to neglect header if needed
-                System.out.println("User data : " + scanner.next().toString());
+                System.out.println("User data : " + scanner.next());
                 ++readenLinesNumber;
             }
 
