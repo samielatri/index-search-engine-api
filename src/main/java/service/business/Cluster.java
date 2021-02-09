@@ -14,7 +14,7 @@ import java.util.List;
  * Class name: Map
  * Class description: A Map is a structured indexed representation of Terms and Documents.
  */
-public class Cluster {
+public class Cluster { // Table
     // TODO: implement Map logic
     List<Document> documentList; // list of documents
     List<List<Pair<Integer, Integer>>> map; // content of cluster

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Class name: Document
  * Class description : A Document is a collection of non structured data.
  */
-public class Document {
+public class Document { // Column
     // TODO: implement Document logic
     ArrayList<String> stringArrayList;
 }
