@@ -16,11 +16,17 @@ import java.util.Collections;
  * Class description : A Document is a collection of non structured data.
  */
 public class Document { // Column
+    // attributes
     // TODO: implement Document logic
     private static int numberOfDocuments = Integer.MIN_VALUE;
     private int documentId; // unique identifier for id
     ArrayList<String> dataArrayList;
 
+    // constructors
+
+    /**
+     * @param stringData
+     */
     public Document(String ... stringData) {
         documentId = numberOfDocuments ++;
         dataArrayList = new ArrayList<>();
@@ -28,10 +34,28 @@ public class Document { // Column
         /*
             for(String data : stringData) {
                 dataArrayList.add(data);
-            }
+            } // foreach block end
          */
-    }
+    } // Document constructor end
 
+    // methods
+
+    /**
+     */
+    public void printDataArrayList() {
+        int dataIdentifier = -1;
+        for(String data : dataArrayList) {
+            System.out.println(++dataIdentifier + " : " + data + "\n");
+        } // foreach block end
+    } // printDataArrayList end
+
+    // accessors
+
+    // main
+
+    /**
+     * @param args
+     */
     public static void main(String [] args) {
         // printDataArrayList();
         // Csv file's path to test
@@ -44,13 +68,6 @@ public class Document { // Column
         } else {
             document.printDataArrayList();
             System.out.println("No problems were occurred during reading");
-        }
-    }
-
-    public void printDataArrayList() {
-        int dataIdentifier = -1;
-        for(String data : dataArrayList) {
-            System.out.println(++dataIdentifier + " : " + data + "\n");
-        }
-    }
-}
+        } // if-else block end
+    } // main end
+} // Document class end

@@ -52,14 +52,14 @@ public class TransformCsvToJson {
             System.out.println("Problem occurred during reading");
         } else {
             System.out.println("No problems were occurred during reading");
-        }
+        } // if-else block end
         // readCsvUsingBufferedReader test
         System.out.println("Calling readCsvUsingBufferedReader :");
         if (readCsvUsingBufferedReader(testPath) == null) {
             System.out.println("Problem occurred during reading");
         } else {
             System.out.println("No problems were occurred during reading");
-        }
+        } // if-else block end
     } // main end
 
     /**
@@ -87,7 +87,7 @@ public class TransformCsvToJson {
                 // TODO : option to neglect header if needed
                 System.out.println("User data : " + scanner.next());
                 ++ reddenLinesNumber;
-            }
+            } // while block end
 
             // close file using Scanner InputStream
             scanner.close();
@@ -197,5 +197,4 @@ public class TransformCsvToJson {
         // placeholder return statement
         return document;
     } // readCsvUsingBufferedReader end
-
 } // TransformCsvToJson end
