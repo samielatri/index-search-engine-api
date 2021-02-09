@@ -61,13 +61,21 @@
     </properties>
 
     <dependencies>
-        <!-- junit : https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <!-- jUnit : https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-web -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>16-ea+6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
