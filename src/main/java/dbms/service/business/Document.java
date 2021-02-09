@@ -1,6 +1,6 @@
-package service.business;
+package dbms.service.business;
 
-import service.util.TransformCsvToJson;
+import dbms.service.util.TransformCsvToJson;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import java.util.Collections;
  * User: sami
  * Date: 2/9/2021
  * Time: 2:38 PM
- * Package: service.business
+ * Package: dbms.service.business
  *
  * Class name: Document
  * Class description : A Document is a collection of non structured data.

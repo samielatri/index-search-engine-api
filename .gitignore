@@ -76,4 +76,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # samples
-samples/
+samples/*.csv
