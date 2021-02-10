@@ -59,7 +59,7 @@
         <project.version>1.0-SNAPSHOT</project.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!-- build -->
+        <!-- server     build -->
         <tomcat.version>2.2</tomcat.version>
         <root.port>9000</root.port>
         <root.url>/</root.url>
