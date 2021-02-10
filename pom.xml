@@ -59,6 +59,11 @@
         <project.version>1.0-SNAPSHOT</project.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- server     build -->
+        <tomcat.version>2.2</tomcat.version>
+        <root.port>9000</root.port>
+        <root.url>/</root.url>
+
         <!-- dependencies  -->
         <!-- junit -->
         <junit.version>5.7.1</junit.version>
@@ -121,12 +126,12 @@
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
+                <version>${tomcat.version}</version>
                 <configuration>
                     <!-- root port -->
-                    <port>9000</port>
+                    <port>${root.port}</port>
                     <!-- application root url -->
-                    <path>/</path>
+                    <path>${root.url}</path>
                 </configuration>
             </plugin>
         </plugins>
