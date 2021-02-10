@@ -115,6 +115,20 @@
                     <target>${javaVersion}</target>
                 </configuration>
             </plugin>
+
+            <!-- Tomcat plugin-->
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <!-- root port -->
+                    <port>9000</port>
+                    <!-- application root url -->
+                    <path>/</path>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
