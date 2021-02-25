@@ -1,4 +1,4 @@
-package dbms.service.util;
+package com.parsing.dbms.service.util;
 
 /**
  * Created bu PacLab

@@ -1,4 +1,4 @@
-package app;
+package com.parsing.app;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

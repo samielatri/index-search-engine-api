@@ -1,4 +1,4 @@
-package filter;
+package com.parsing.filter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
