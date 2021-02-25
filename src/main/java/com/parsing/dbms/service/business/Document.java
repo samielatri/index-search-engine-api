@@ -1,6 +1,6 @@
-package dbms.service.business;
+package com.parsing.dbms.service.business;
 
-import dbms.service.util.TransformCsvToJson;
+import com.parsing.dbms.service.util.TransformCsvToJson;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,8 +1,8 @@
-package dbms.service.util;
+package com.parsing.dbms.service.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dbms.service.business.Document;
+import com.parsing.dbms.service.business.Document;
 
 import java.io.*;
 import java.util.Scanner;

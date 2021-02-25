@@ -1,4 +1,4 @@
-package app;
+package com.parsing.app;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
