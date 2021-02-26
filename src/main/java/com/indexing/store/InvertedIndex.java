@@ -2,8 +2,15 @@ package com.indexing.store;
 
 import java.util.*;
 
-public class InvertedIndex {
+/**
+ * Created bu PacLab
+ * User: sami
+ * */
 
+public class InvertedIndex {
+	// TODO: get rid of magic string values
+
+	// TODO: refactor name to stopWords
     public static final List<String> stopwords = Arrays.asList("a", "able", "about",
             "across", "after", "all", "almost", "also", "am", "among", "an",
             "and", "any", "are", "as", "at", "be", "because", "been", "but",
@@ -20,6 +27,12 @@ public class InvertedIndex {
             "what", "when", "where", "which", "while", "who", "whom", "why",
             "will", "with", "would", "yet", "you", "your");
 
+	public static final String[] columns = {
+		"vendorid", "tpep_pickup_datetime", "tpep_dropoff_datetime", "passenger_count", "trip_distance", "ratecodeid", "store_and_fwd_flag",
+		"pulocationid", "dolocationid", "payment_type", "fare_amount", "extra", "mta_tax", "tip_amount", "tolls_amount", "improvement_surcharge",
+		"total_amount", "congestion_surcharge"
+	};
+	
     public static final Map<String, List<Tuple>> index = new HashMap<>();
     public static final List<String> files = new ArrayList<>();
 }
