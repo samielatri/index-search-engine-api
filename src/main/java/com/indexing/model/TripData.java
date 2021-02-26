@@ -1,5 +1,10 @@
 package com.indexing.model;
 
-public class TripData {
+/**
+ * Created bu PacLab
+ * User: sami
+ * */
 
+public class TripData {
+    // TODO: implement
 }

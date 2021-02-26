@@ -1,10 +1,17 @@
 package com.indexing.service;
 
+import com.indexing.exception.InvalidQueryExcepiton;
 import com.indexing.store.InvertedIndex;
 import com.indexing.store.Tuple;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+/**
+ * Created bu PacLab
+ * User: sami
+ * */
 
 public class SearchService {
 
@@ -20,5 +27,19 @@ public class SearchService {
             }
         }
         return matchingFiles;
+    }
+
+    // TODO: add exception to signature
+    public List<String> search(String query) throws InvalidQueryExcepiton {
+        if (!QueryParser.validateQuery(query)) {
+            throw new InvalidQueryExcepiton("Invalid query");
+        }
+        String[] columns = QueryParser.extractQueryColumns(query);
+        // TODO select data based on the columns provided in the query
+        if (QueryParser.isWhereQuery(query)) {
+            Map<String, String> conditions = QueryParser.extractQueryWhereConditions(query);
+            // TODO use the conditions to filter the data
+        }
+        return null;
     }
 }

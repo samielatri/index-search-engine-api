@@ -1,5 +1,10 @@
 package com.indexing.store;
 
+/**
+ * Created bu PacLab
+ * User: sami
+ * */
+
 public class Tuple {
     private int fileno;
     private int position;

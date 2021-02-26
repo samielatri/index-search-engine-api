@@ -12,6 +12,11 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Created bu PacLab
+ * User: sami
+ * */
+
 public class IndexService {
 
     public long indexFile(InputStream inputStream, ContentDisposition contentDisposition) throws IOException {
@@ -40,6 +45,7 @@ public class IndexService {
                 if (InvertedIndex.stopwords.contains(word))
                     continue;
                 List<Tuple> idx = InvertedIndex.index.get(word);
+                // TODO: computeIfAbsent method
                 if (idx == null) {
                     idx = new LinkedList<>();
                     InvertedIndex.index.put(word, idx);

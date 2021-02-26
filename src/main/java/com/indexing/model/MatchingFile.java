@@ -2,6 +2,11 @@ package com.indexing.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Created bu PacLab
+ * User: sami
+ * */
+
 @XmlRootElement
 public class MatchingFile {
 
