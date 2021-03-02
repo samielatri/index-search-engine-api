@@ -1,5 +1,10 @@
 package com.indexing.store;
 
+/**
+ * Created bu PacLab
+ * User: sami
+ */
+
 public class Metadata {
     private int fileNumber;
     private int lineNumber;

@@ -1,6 +1,6 @@
 package com.indexing.service;
 
-import com.indexing.exception.InvalidQueryExcepiton;
+import com.indexing.exception.InvalidQueryException;
 import com.indexing.store.InvertedIndex;
 import com.indexing.store.Metadata;
 import org.json.JSONArray;
@@ -11,6 +11,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+/**
+ * Created bu PacLab
+ * User: sami
+ */
 
 public class SearchService {
 
@@ -29,11 +34,11 @@ public class SearchService {
         return matchingFiles;
     }
 
-    public JSONArray search(String query) throws InvalidQueryExcepiton {
+    public JSONArray search(String query) throws InvalidQueryException {
         // Json array to hold the result
         JSONArray jsonArray = new JSONArray();
         if (!QueryParser.validateQuery(query)) {
-            throw new InvalidQueryExcepiton("Invalid query syntax");
+            throw new InvalidQueryException("Invalid query syntax");
         }
         String[] columns = QueryParser.extractQueryColumns(query);
         if (QueryParser.isWhereQuery(query)) {

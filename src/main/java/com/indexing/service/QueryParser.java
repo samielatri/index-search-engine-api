@@ -2,12 +2,16 @@ package com.indexing.service;
 
 import com.indexing.util.SQLKeywords;
 
-import java.sql.SQLWarning;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+/**
+ * Created bu PacLab
+ * User: sami
+ */
 
 public class QueryParser {
 

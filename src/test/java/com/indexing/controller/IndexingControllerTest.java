@@ -17,9 +17,22 @@ import java.io.File;
 
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * Created bu PacLab
+ * User: sami
+ */
+
 public class IndexingControllerTest extends JerseyTest {
 
-    private static final String FILE_PATH = System.getProperty("user.dir") + "/dummy-data.csv";
+    private static final String FILE_PATH;
+
+    static {
+        FILE_PATH = System.getProperty("user.dir") + "/dummy-data.csv";
+    }
+
+    public IndexingControllerTest() {
+
+    }
 
     @Override
     protected Application configure() {
@@ -37,17 +50,33 @@ public class IndexingControllerTest extends JerseyTest {
 
     @Test
     public void testIndexFile() {
-        FileDataBodyPart filePart = new FileDataBodyPart("file", new File(FILE_PATH));
+        FileDataBodyPart filePart = (new FileDataBodyPart(
+                "file",
+                new File(FILE_PATH)
+        ));
+
         filePart.setContentDisposition(
-                FormDataContentDisposition.name("file").fileName(FILE_PATH).build());
+                FormDataContentDisposition.name("file")
+                        .fileName(FILE_PATH)
+                        .build()
+        );
+
         filePart.setMediaType(MediaType.valueOf("audio/mpeg"));
 
-        MultiPart multiPart = new FormDataMultiPart()
-                .bodyPart(filePart);
+        MultiPart multiPart = (
+                new FormDataMultiPart()
+                        .bodyPart(filePart)
+        );
 
         final String response = target("index")
                 .request()
-                .post(Entity.entity(multiPart, MediaType.MULTIPART_FORM_DATA), String.class);
+                .post(
+                        Entity.entity(
+                                multiPart,
+                                MediaType.MULTIPART_FORM_DATA
+                        ),
+                        String.class
+                );
 
         assertNotNull(response);
     }

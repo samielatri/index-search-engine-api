@@ -13,23 +13,23 @@ import java.util.Scanner;
  * Date: 2/9/2021
  * Time: 3:02 PM
  * Package: dbms.service.util
- *
+ * <p>
  * Class name: TransformCsvToJson
  * Class description: A TransformCsvToJson is a tool to transform Csv to Json.
  * Class members:
- *  Class attributes: none
- *  Class methods:
- *      readCsvUsingBufferedReader :
- *          use:
- *              best use to get strings
- *          note:
- *              faster than readCsvUsingScanner
- *              as it only reads one character per stream (1 byte per call)
- *      readCsvUsingScanner :
- *          use:
- *              best use to get specific data types or regular expressions from csv file
- *          note:
- *              slower than using readCsvUsingBufferedReader
+ * Class attributes: none
+ * Class methods:
+ * readCsvUsingBufferedReader :
+ * use:
+ * best use to get strings
+ * note:
+ * faster than readCsvUsingScanner
+ * as it only reads one character per stream (1 byte per call)
+ * readCsvUsingScanner :
+ * use:
+ * best use to get specific data types or regular expressions from csv file
+ * note:
+ * slower than using readCsvUsingBufferedReader
  */
 public class TransformCsvToJson implements Closeable {
     // TODO: first line describes the terms
@@ -39,9 +39,10 @@ public class TransformCsvToJson implements Closeable {
 
     /**
      * main : main entry of TransformCsvToJson class to test member methods of the class.
+     *
      * @param args : an array of String meant to hold passed command line arguments.
      */
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         // debug info
         System.out.println("dbms.service.util.TransformCsvToJson : main call");
         // Csv file's path to test
@@ -64,8 +65,9 @@ public class TransformCsvToJson implements Closeable {
 
     /**
      * readCsvUsingScanner :
-     *  static method to read csv file using Scanner.
-     *  returns number of lines redden from file, -1 if error.
+     * static method to read csv file using Scanner.
+     * returns number of lines redden from file, -1 if error.
+     *
      * @param filePath : String that represents file path of the csv file.
      */
     private static long readCsvUsingScanner(String filePath) {
@@ -86,7 +88,7 @@ public class TransformCsvToJson implements Closeable {
             while (scanner.hasNext()) {
                 // TODO : option to neglect header if needed
                 System.out.println("User data : " + scanner.next());
-                ++ reddenLinesNumber;
+                ++reddenLinesNumber;
             } // while block end
 
             // close file using Scanner InputStream
@@ -101,7 +103,7 @@ public class TransformCsvToJson implements Closeable {
             String outputMessage = "";
 
             // file does not exist
-            if(!file.exists()) {
+            if (!file.exists()) {
                 outputMessage += "\tThe file does not exist.";
                 outputMessage += "\n\tPlease verify that the path of the file and that it exists :";
                 File currentDirectory = new File(".");
@@ -110,12 +112,12 @@ public class TransformCsvToJson implements Closeable {
             } // if-end block end
 
             // file is a directory
-            if(file.isDirectory()){
+            if (file.isDirectory()) {
                 outputMessage += "\tThe file is a directory.";
             } // if-end block end
 
             // file cannot be read
-            if(!file.canRead()){
+            if (!file.canRead()) {
                 outputMessage += "\tThe file cannot be read.";
                 outputMessage += "\tPlease verify that the read rights and that the file is not open by another program.";
             } // if-end block end
@@ -137,8 +139,9 @@ public class TransformCsvToJson implements Closeable {
 
     /**
      * readCsvUsingBufferedReader :
-     *  static method to read csv file using BufferedReader.
-     *  returns number of lines redden from file, -1 if error.
+     * static method to read csv file using BufferedReader.
+     * returns number of lines redden from file, -1 if error.
+     *
      * @param filePath : A String that represents file path of the csv file.
      */
     public static Document readCsvUsingBufferedReader(String filePath) {
@@ -155,7 +158,7 @@ public class TransformCsvToJson implements Closeable {
 
                 System.out.println("Imported data : " + reddenLine);
 
-                String [] importedData = reddenLine.split(delimiter);
+                String[] importedData = reddenLine.split(delimiter);
 
                 System.out.println("Document creation -> Waiting...");
                 document = new Document(importedData);

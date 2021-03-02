@@ -13,9 +13,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Created bu PacLab
+ * User: sami
+ */
+
 public class IndexService {
 
-    public long indexFile(InputStream inputStream, ContentDisposition contentDisposition) throws IOException {
+    public void indexFile(InputStream inputStream, ContentDisposition contentDisposition) throws IOException {
         String name;
         final List<String> columns = new ArrayList<>();
         if (contentDisposition != null) {
@@ -23,7 +28,7 @@ public class IndexService {
         } else {
             name = "file_" + LocalDateTime.now();
         }
-        long startTime = System.currentTimeMillis();
+        // long startTime = System.currentTimeMillis();
         int fileNumber = InvertedIndex.files.indexOf(name);
         if (fileNumber == -1) {
             InvertedIndex.files.add(name);
@@ -48,19 +53,21 @@ public class IndexService {
                 } else {
                     if (word.isBlank() || InvertedIndex.stopwords.contains(word))
                         continue;
-                    List<Metadata> idx = InvertedIndex.index.get(word);
-                    if (idx == null) {
-                        idx = new LinkedList<>();
-                        InvertedIndex.index.put(word, idx);
-                    }
+                    List<Metadata> idx = InvertedIndex.index.computeIfAbsent(word, k -> new LinkedList<>());
                     idx.add(new Metadata(fileNumber, lineNumber, columns.get(columnNumber).trim()));
+                    /*
+                        if (idx == null) {
+                            idx = new LinkedList<>();
+                            InvertedIndex.index.put(word, idx);
+                        }
+                     */
                     columnNumber++;
                 }
             }
 
             lineNumber++;
         }
-        return System.currentTimeMillis() - startTime;
+        // return System.currentTimeMillis() - startTime;
     }
 
 }

@@ -1,16 +1,12 @@
 package com.parsing.dbms.service.business;
 
-import javafx.util.Pair;
-
-import java.util.List;
-
 /**
  * Created bu PacLab
  * User: sami
  * Date: 2/9/2021
  * Time: 2:39 PM
  * Package: dbms.service.business
- *
+ * <p>
  * Class name: Map
  * Class description: A Map is a structured indexed representation of Terms and Documents.
  */
@@ -56,11 +52,11 @@ public class Cluster { // Table -> collection of tables (tables = documents) -> 
        occ : occurrence of the documentList[x] in the document of num_doc
   */
 
- // WARNING : this logic is implemented only in case no fields /!\
+    // WARNING : this logic is implemented only in case no fields /!\
 
- // OTHER LOGIC :
+    // OTHER LOGIC :
     // Use Header Class
     // and normal two dimensional arrays
 
- // After V0 : see binary trees
+    // After V0 : see binary trees
 }

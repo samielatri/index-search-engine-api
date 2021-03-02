@@ -1,6 +1,6 @@
 package com.indexing.controller;
 
-import com.indexing.exception.InvalidQueryExcepiton;
+import com.indexing.exception.InvalidQueryException;
 import com.indexing.service.SearchService;
 import org.json.JSONArray;
 
@@ -8,15 +8,26 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
+
+/**
+ * Created bu PacLab
+ * User: sami
+ */
 
 @Path("/search")
 @Produces(value = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class SearchController {
 
-    private SearchService searchService = new SearchService();
+    private SearchService searchService;
 
+    {
+        searchService = new SearchService();
+    }
+
+    public SearchController() {
+
+    }
 
     @GET
     public Response findMatchingFiles(@QueryParam("keywords") String keywords) {
@@ -32,7 +43,7 @@ public class SearchController {
     }
 
     @POST
-    public Response searchByQuery(String query) throws InvalidQueryExcepiton {
+    public Response searchByQuery(String query) throws InvalidQueryException {
         JSONArray result = searchService.search(query);
         return Response.status(Response.Status.OK).entity(result.toString()).build();
     }

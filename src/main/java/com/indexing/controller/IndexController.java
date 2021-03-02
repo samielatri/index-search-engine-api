@@ -1,4 +1,3 @@
-  
 package com.indexing.controller;
 
 import com.indexing.service.IndexService;
@@ -18,26 +17,69 @@ import java.util.List;
 /**
  * Created bu PacLab
  * User: sami
- * */
+ */
 
 @Path("/index")
 @Produces(value = {MediaType.APPLICATION_JSON})
 public class IndexController {
 
-    private IndexService indexService = new IndexService();
+    // static block
+    static {
+        // System.out.println("<debug> IndexController loaded in memory.");
+    }
+
+    /* data members */
+    private IndexService indexService;
+
+    // non-static block
+    {
+        indexService = new IndexService();
+    }
+
+    /* constructors */
+
+    // default constructor
+    public IndexController() {
+
+    }
+
+    /* methods */
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
-    public Response indexFile(@FormDataParam("file") List<FormDataBodyPart> formDataBodyParts) {
+    public Response indexFile(
+            @FormDataParam("file") List<FormDataBodyPart> formDataBodyParts
+    ) {
         try {
             for (FormDataBodyPart part : formDataBodyParts) {
-                System.out.println("Indexing file : " + part.getContentDisposition().getFileName());
-                indexService.indexFile(part.getEntityAs(InputStream.class), part.getContentDisposition());
-                System.out.println("Successfully indexed file  : " + part.getContentDisposition().getFileName());
+                System.out.println(
+                        "Indexing file : "
+                                + part.getContentDisposition()
+                                .getFileName()
+                );
+
+                indexService.indexFile(
+                        part.getEntityAs(InputStream.class),
+                        part.getContentDisposition()
+                );
+
+                System.out.println(
+                        "Successfully indexed file  : "
+                                + part.getContentDisposition()
+                                .getFileName()
+                );
             }
-            return Response.status(Response.Status.OK).entity("Indexing files went successfully").build();
+            return (
+                    Response.status(Response.Status.OK)
+                            .entity("Indexing files went successfully")
+                            .build()
+            );
         } catch (IOException ex) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex).build();
+            return (
+                    Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                            .entity(ex)
+                            .build()
+            );
         }
     }
 

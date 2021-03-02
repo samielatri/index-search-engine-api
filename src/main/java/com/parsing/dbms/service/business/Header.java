@@ -32,7 +32,8 @@ public class Header {
 
     /**
      * Constructor
-     * @param headerMap : headerMap
+     *
+     * @param headerMap  : headerMap
      * @param headerName : headerName
      */
     public Header(final Map<String, Integer> headerMap, final List<String> headerName) {

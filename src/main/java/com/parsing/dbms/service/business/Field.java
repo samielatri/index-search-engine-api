@@ -20,7 +20,10 @@ public interface Field extends Serializable {
     public void getType();
 
     void serialize(DataOutputStream dataOutputStream) throws IOException;
+
     public int hashcode();
+
     public boolean equals(Object filedObject);
+
     public String toString();
 }
