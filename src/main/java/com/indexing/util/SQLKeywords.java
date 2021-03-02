@@ -1,13 +1,7 @@
 package com.indexing.util;
 
-/**
- * Created bu PacLab
- * User: sami
- * */
-
 public class SQLKeywords {
 
-    // TODO: add other keywords and extra ones like xor and xand
     public static final String SELECT = "SELECT";
     public static final String FROM = "FROM";
     public static final String WHERE = "WHERE";

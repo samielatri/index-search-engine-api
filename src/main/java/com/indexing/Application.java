@@ -13,7 +13,7 @@ import java.util.Arrays;
  * */
 public class Application {
     // TODO : change it to non magical string
-    public static final String FILE_PATH = "../../../../samples/yellow_tripdata_2020-02.csv";
+    public static final String FILE_PATH = "C:/Users/Sami/Desktop/pacsearch/samples/yellow_tripdata_2020-07.csv";
 
     // TODO: initialize in static block
     private static IndexService indexService = new IndexService();
@@ -30,7 +30,7 @@ public class Application {
 				);
             }
             //TODO: replace with singleton
-            searchService.search(Arrays.asList("koko"));
+            searchService.search(Arrays.asList("2020-07-29"));
         } catch (Exception e) {
             e.printStackTrace();
         }
