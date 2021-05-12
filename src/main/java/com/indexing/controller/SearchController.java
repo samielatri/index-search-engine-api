@@ -12,29 +12,23 @@ import java.util.stream.Collectors;
 
 /**
  * Created bu PacLab
- * User: sami
+ * User: PacLab
  */
 
 @Path("/search")
 @Produces(value = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class SearchController {
 
-    private SearchService searchService;
+    private SearchService searchService = new SearchService();
 
-    {
-        searchService = new SearchService();
-    }
-
-    public SearchController() {
-
-    }
 
     @GET
-    public Response findMatchingFiles(@QueryParam("keywords") String keywords) {
+    public Response findMatchingFiles(@QueryParam("keywords") String keywords, @QueryParam("table") String tables) {
         String[] splitKeywords = keywords.split(",");
+        String[] splitTables = tables.split(",");
         String result =
                 searchService
-                        .search(Arrays.asList(splitKeywords))
+                        .search(Arrays.asList(splitKeywords), splitTables)
                         .stream()
                         .map(Object::toString)
                         .collect(Collectors.joining(","));

@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created bu PacLab
- * User: sami
+ * User: PacLab
  */
 
 @XmlRootElement

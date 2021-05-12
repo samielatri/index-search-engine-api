@@ -7,7 +7,7 @@
 
     <!-- project -->
     <inceptionYear>2021</inceptionYear>
-    <groupId>com.paclab.pacsearch</groupId>
+    <groupId>com.indexing</groupId>
     <artifactId>pacsearch</artifactId>
     <version>${project.version}</version>
     <name>PacSearch</name>
@@ -77,56 +77,6 @@
     </properties>
 
     <dependencies>
-        <!-- jUnit : https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- javaFX : https://mvnrepository.com/artifact/org.openjfx/javafx-web -->
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-web</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-
-        <!-- gson : https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
-        </dependency>
-
-        <!-- jax-rs : https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-            <version>${jaxrs.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-servlet-initializer -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-servlet-initializer</artifactId>
-            <version>4.6.0.Final</version>
-        </dependency>
-
-        <!-- TODO: hardcoded versions to make to vars -->
-        <!-- tomcat -->
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>7.0.104</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.10.10</version>
-        </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
@@ -149,27 +99,24 @@
             <version>2.27</version>
         </dependency>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>org.glassfish.jersey.test-framework</groupId>
+            <artifactId>jersey-test-framework-core</artifactId>
+            <version>2.27</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20200518</version>
-        </dependency>
-
         <dependency>
             <groupId>org.glassfish.jersey.test-framework.providers</groupId>
             <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
             <version>2.27</version>
         </dependency>
-
         <dependency>
-            <groupId>org.glassfish.jersey.test-framework</groupId>
-            <artifactId>jersey-test-framework-core</artifactId>
-            <version>2.27</version>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20200518</version>
         </dependency>
 
 
@@ -178,38 +125,6 @@
     <!-- build -->
     <build>
         <finalName>PacSearch</finalName>
-
-        <plugins>
-            <!-- maven -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.version}</version>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-            </plugin>
-            <!-- Tomcat plugin-->
-
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>${tomcat.version}</version>
-                <configuration>
-                    <!-- root port -->
-                    <port>${root.port}</port>
-                    <!-- application root url -->
-                    <path>${root.url}</path>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
 </project>

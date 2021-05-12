@@ -1,5 +1,6 @@
 package com.indexing.service;
 
+import com.indexing.model.QueryType;
 import com.indexing.util.SQLKeywords;
 
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created bu PacLab
- * User: sami
+ * User: PacLab
  */
 
 public class QueryParser {
@@ -22,6 +23,9 @@ public class QueryParser {
             if (!query.contains(SQLKeywords.EQUAL)) {
                 validWhereQuery = false;
             } else if (query.contains(SQLKeywords.WHERE) && query.trim().endsWith(SQLKeywords.WHERE)) {
+                validWhereQuery = false;
+            } else if (query.contains(SQLKeywords.AND) && query.contains(SQLKeywords.OR)) {
+                System.err.println("Support for mixed (AND/OR) query is not supported yet");
                 validWhereQuery = false;
             }
         }
@@ -36,15 +40,25 @@ public class QueryParser {
     protected static String[] extractQueryColumns(String query) {
         String columnString = getStringWithRegex(query, SQLKeywords.SELECT + "(.*?)" + SQLKeywords.FROM);
         return columnString.split(SQLKeywords.SEPARATOR);
-
     }
 
-    public static Map<String, String> extractQueryWhereConditions(String query) {
+    public static String[] extractQueryTables(String query) {
+        String tables = getStringWithRegex(query, SQLKeywords.FROM + "(.*?)" + SQLKeywords.WHERE);
+        return tables.split(SQLKeywords.SEPARATOR);
+    }
+
+    public static Map<String, String> extractQueryWhereConditions(String query, QueryType queryType) {
         query = query.replace(SQLKeywords.WHERE.toLowerCase(), SQLKeywords.WHERE);
         Map<String, String> conditions = new HashMap<>();
-        String conditionString = query.substring(query.indexOf(SQLKeywords.WHERE) + SQLKeywords.WHERE.length() + 1);
-        conditionString = conditionString.replace(SQLKeywords.AND.toLowerCase(), SQLKeywords.AND);
-        String[] splitConditions = conditionString.split(SQLKeywords.AND);
+        String conditionStrings = query.substring(query.indexOf(SQLKeywords.WHERE) + SQLKeywords.WHERE.length() + 1);
+        // TODO what about the case where the column name/value contain and/or strings ? eg: vend(or)ID
+        conditionStrings = conditionStrings.replace(SQLKeywords.AND.toLowerCase(), SQLKeywords.AND).replace(SQLKeywords.OR.toLowerCase(), SQLKeywords.OR);
+        String[] splitConditions;
+        if (queryType == QueryType.AND) {
+            splitConditions = conditionStrings.split(SQLKeywords.AND);
+        } else {
+            splitConditions = conditionStrings.split(SQLKeywords.OR);
+        }
         for (String condition : splitConditions) {
             String[] keyValueCondition = condition.split(SQLKeywords.EQUAL);
             conditions.put(keyValueCondition[0].trim(), keyValueCondition[1].trim());
@@ -60,5 +74,9 @@ public class QueryParser {
             conditionString = matcher.group(1);
         }
         return conditionString;
+    }
+
+    public static QueryType queryType(String query) {
+        return query.contains(SQLKeywords.AND) || query.contains(SQLKeywords.AND.toLowerCase()) ? QueryType.AND : QueryType.OR;
     }
 }

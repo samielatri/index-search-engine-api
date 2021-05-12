@@ -2,7 +2,7 @@ package com.indexing.exception;
 
 /**
  * Created bu PacLab
- * User: sami
+ * User: PacLab
  */
 
 public class InvalidQueryException extends Exception {

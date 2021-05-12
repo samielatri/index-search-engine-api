@@ -1,16 +1,18 @@
 package com.indexing.store;
 
+import java.util.Objects;
+
 /**
  * Created bu PacLab
- * User: sami
+ * User: PacLab
  */
 
-public class Metadata {
+public class Tuple {
     private int fileNumber;
     private int lineNumber;
     private String column;
 
-    public Metadata(int fileNumber, int lineNumber, String column) {
+    public Tuple(int fileNumber, int lineNumber, String column) {
         this.fileNumber = fileNumber;
         this.lineNumber = lineNumber;
         this.column = column;
@@ -38,5 +40,18 @@ public class Metadata {
 
     public void setColumn(String column) {
         this.column = column;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tuple tuple = (Tuple) o;
+        return fileNumber == tuple.fileNumber && lineNumber == tuple.lineNumber && column.equals(tuple.getColumn());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fileNumber, lineNumber);
     }
 }
