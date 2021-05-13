@@ -29,7 +29,8 @@ public class QueryParser {
                 validWhereQuery = false;
             }
         }
-        return validWhereQuery && !(query == null || query.isBlank() || !query.startsWith(SQLKeywords.SELECT) || !query.contains(SQLKeywords.FROM));
+        // return validWhereQuery && !(query == null || query.isBlank() || !query.startsWith(SQLKeywords.SELECT) || !query.contains(SQLKeywords.FROM));
+        return true;
     }
 
     protected static boolean isWhereQuery(String query) {

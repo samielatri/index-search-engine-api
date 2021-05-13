@@ -55,6 +55,7 @@ public class IndexService {
                 if (lineNumber == 0) {
                     columns.add(word);
                 } else {
+                    /*
                     if (word.isBlank() || InvertedIndex.stopwords.contains(word))
                         continue;
                     List<Tuple> idx = InvertedIndex.getWordMetadata(tableName, word);
@@ -64,6 +65,7 @@ public class IndexService {
                     }
                     idx.add(new Tuple(fileNumber, lineNumber, columns.get(columnNumber).trim()));
                     columnNumber++;
+                    */
                 }
             }
 
