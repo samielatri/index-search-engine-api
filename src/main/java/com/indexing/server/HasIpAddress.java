@@ -14,7 +14,8 @@ import java.net.UnknownHostException;
  *
  * Interface hasIpAddress
  */
-public interface hasIpAddress {
+public interface HasIpAddress {
+
     /**
      * @return String host IP address
      * @throws Exception UnknownHostException if host is unknown

@@ -1,6 +1,7 @@
 package com.indexing.store.Document;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class DocumentLine
@@ -25,6 +26,7 @@ public class DocumentLine
     public float tollsAmount;  // tolls_amount
     public float improvementSurcharge;  // improvement_surcharge
     public float totalAmount;  // total_amount
+    public HashMap<String, Object> mapper;
     
     /* Constructors */
 
@@ -39,10 +41,10 @@ public class DocumentLine
             String tpepDropoffDatetime,
             int passengerCount,
             float tripDistance,
-            int ratecodeID,
-            String storeAndFwdFlag,
             float pickupLongitude,
             float pickupLatitude,
+            int ratecodeID,
+            String storeAndFwdFlag,
             float dropoffLongitude,
             float dropoffLatitude,
             int paymentType,
@@ -242,6 +244,13 @@ public class DocumentLine
         this.totalAmount = totalAmount;
     }
 
+    public HashMap<String, Object> getMapper() {
+        return mapper;
+    }
+
+    public void setMapper(HashMap<String, Object> mapper) {
+        this.mapper = mapper;
+    }
 
     @Override
     public String toString() {
@@ -268,15 +277,31 @@ public class DocumentLine
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(tpepPickupDatetime, tpepDropoffDatetime, passengerCount, tripDistance, ratecodeID, storeAndFwdFlag, pickupLongitude, pickupLatitude, dropoffLongitude, dropoffLatitude, paymentType, fareAmount, extra, mtaTax, tipAmount, tollsAmount, improvementSurcharge, totalAmount);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof DocumentLine)) return false;
         DocumentLine that = (DocumentLine) o;
-        return passengerCount == that.passengerCount && Float.compare(that.tripDistance, tripDistance) == 0 && ratecodeID == that.ratecodeID && Float.compare(that.pickupLongitude, pickupLongitude) == 0 && Float.compare(that.pickupLatitude, pickupLatitude) == 0 && Float.compare(that.dropoffLongitude, dropoffLongitude) == 0 && Float.compare(that.dropoffLatitude, dropoffLatitude) == 0 && paymentType == that.paymentType && Float.compare(that.fareAmount, fareAmount) == 0 && Float.compare(that.extra, extra) == 0 && Float.compare(that.mtaTax, mtaTax) == 0 && Float.compare(that.tipAmount, tipAmount) == 0 && Float.compare(that.tollsAmount, tollsAmount) == 0 && Float.compare(that.improvementSurcharge, improvementSurcharge) == 0 && Float.compare(that.totalAmount, totalAmount) == 0 && Objects.equals(tpepPickupDatetime, that.tpepPickupDatetime) && Objects.equals(tpepDropoffDatetime, that.tpepDropoffDatetime) && Objects.equals(storeAndFwdFlag, that.storeAndFwdFlag);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(tpepPickupDatetime, tpepDropoffDatetime, passengerCount, tripDistance, ratecodeID, storeAndFwdFlag, pickupLongitude, pickupLatitude, dropoffLongitude, dropoffLatitude, paymentType, fareAmount, extra, mtaTax, tipAmount, tollsAmount, improvementSurcharge, totalAmount);
+        return getPassengerCount() == that.getPassengerCount() &&
+                Float.compare(that.getTripDistance(), getTripDistance()) == 0 &&
+                getRatecodeID() == that.getRatecodeID() &&
+                Float.compare(that.getPickupLongitude(), getPickupLongitude()) == 0 &&
+                Float.compare(that.getPickupLatitude(), getPickupLatitude()) == 0 &&
+                Float.compare(that.getDropoffLongitude(), getDropoffLongitude()) == 0 &&
+                Float.compare(that.getDropoffLatitude(), getDropoffLatitude()) == 0 &&
+                getPaymentType() == that.getPaymentType() &&
+                Float.compare(that.getFareAmount(), getFareAmount()) == 0 &&
+                Float.compare(that.getExtra(), getExtra()) == 0 &&
+                Float.compare(that.getMtaTax(), getMtaTax()) == 0 &&
+                Float.compare(that.getTipAmount(), getTipAmount()) == 0 &&
+                Float.compare(that.getTollsAmount(), getTollsAmount()) == 0 &&
+                Float.compare(that.getImprovementSurcharge(), getImprovementSurcharge()) == 0 &&
+                Float.compare(that.getTotalAmount(), getTotalAmount()) == 0 && getTpepPickupDatetime().equals(that.getTpepPickupDatetime()) &&
+                getTpepDropoffDatetime().equals(that.getTpepDropoffDatetime()) &&
+                getStoreAndFwdFlag().equals(that.getStoreAndFwdFlag());
     }
 }

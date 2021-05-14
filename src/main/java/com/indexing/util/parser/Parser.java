@@ -19,4 +19,7 @@ public interface Parser<T1, T2> {
      */
     T2 parseFile(String fileName);
 
+    static String [] parseData(String data, String separator){
+        return data.split(separator);
+    }
 }

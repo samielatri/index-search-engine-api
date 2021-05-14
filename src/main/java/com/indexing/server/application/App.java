@@ -8,7 +8,7 @@ import com.indexing.server.IsHost;
 import com.indexing.server.cluster.FirstNode;
 import com.indexing.server.cluster.SecondNode;
 import com.indexing.server.cluster.ThirdNode;
-import com.indexing.server.hasIpAddress;
+import com.indexing.server.HasIpAddress;
 import com.indexing.exception.RuntimeExceptionMapper;
 import com.indexing.util.GsonProvider;
 import com.indexing.util.parser.CSVParser;
@@ -74,7 +74,7 @@ public class App
     @Override
     public String toString() {
         try {
-            return "App" + hasIpAddress.getIp();
+            return "App" + HasIpAddress.getIp();
         } catch (Exception e) {
             e.printStackTrace();
         }
