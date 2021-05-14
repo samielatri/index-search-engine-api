@@ -1,5 +1,5 @@
 /* package */
-package com.indexing.app;
+package com.indexing.application;
 
 /* On-Demand Imports */
 
@@ -10,7 +10,6 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +25,10 @@ public class App
         implements hasIpAddress {
 
     /* Constructors */
+
+    /**
+     * default constructor
+     */
     public App() {
     }
 
@@ -37,7 +40,7 @@ public class App
      */
     @Override
     public Set<Object> getSingletons() {
-        Set<Object> sets = new HashSet<>(NUMBER_OF_NODES);
+        Set<Object> sets = new HashSet<>(Configuration.getNumberOfNodes());
         return sets;
     }
 
@@ -47,7 +50,7 @@ public class App
      */
     @Override
     public Set<Class<?>> getClasses() {
-        Set<Class<?>> sets = new HashSet<>(NUMBER_OF_UTIL_CLASSES);
+        Set<Class<?>> sets = new HashSet<>(Configuration.getNumberOfUtilClasses());
         sets.add(RuntimeExceptionMapper.class);
         return sets;
     }

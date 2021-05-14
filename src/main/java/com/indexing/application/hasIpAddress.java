@@ -1,5 +1,5 @@
 /* package */
-package com.indexing.app;
+package com.indexing.application;
 
 /* On-Demand Imports */
 
@@ -12,12 +12,8 @@ import java.net.InetAddress;
  * Date: 2021
  *
  * Interface hasIpAddress
- **/
-public interface hasIpAddress {
-
-    int NUMBER_OF_NODES = 3;
-    int NUMBER_OF_UTIL_CLASSES = 3;
-
+ */
+interface hasIpAddress {
     /**
      * @return String host IP address
      * @throws Exception UnknownHostException if host is unknown

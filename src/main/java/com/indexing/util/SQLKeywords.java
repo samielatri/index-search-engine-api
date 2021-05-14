@@ -5,7 +5,7 @@ package com.indexing.util;
  * User: PacLab
  */
 
-public class SQLKeywords {
+public final class SQLKeywords {
 
     public static final String SELECT = "SELECT";
     public static final String FROM = "FROM";
