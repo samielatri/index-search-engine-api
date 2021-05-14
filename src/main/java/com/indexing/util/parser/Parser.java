@@ -1,8 +1,9 @@
 package com.indexing.util.parser;
 
 public interface Parser<T1, T2> {
-    int i= 0;
-    String fileName = "D:\\workspace\\etudes\\l3\\s2\\ntw\\pacsearch\\samples\\green_tripdata_2015-02.csv";
+    int i = 0;
+
+    String fileName = System.getProperty("user.dir") + "/" + Configuration.sampleFolder + "/" + Configuration.fileToLoadName;
 
     /**
      * Parse a line of file and store it in T1 instance.
