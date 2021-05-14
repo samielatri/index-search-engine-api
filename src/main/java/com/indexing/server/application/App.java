@@ -1,10 +1,17 @@
 /* package */
-package com.indexing.application;
+package com.indexing.server.application;
 
 /* On-Demand Imports */
 
 /* Specific Imports */
+import com.indexing.server.IsHost;
+import com.indexing.server.cluster.FirstNode;
+import com.indexing.server.cluster.SecondNode;
+import com.indexing.server.cluster.ThirdNode;
+import com.indexing.server.hasIpAddress;
 import com.indexing.exception.RuntimeExceptionMapper;
+import com.indexing.util.GsonProvider;
+import com.indexing.util.parser.CSVParser;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -22,7 +29,7 @@ import java.util.Set;
 @ApplicationPath("")
 public class App
         extends Application
-        implements hasIpAddress {
+        implements IsHost {
 
     /* Constructors */
 
@@ -41,6 +48,9 @@ public class App
     @Override
     public Set<Object> getSingletons() {
         Set<Object> sets = new HashSet<>(Configuration.getNumberOfNodes());
+        sets.add(new FirstNode());
+        sets.add(new SecondNode());
+        sets.add(new ThirdNode());
         return sets;
     }
 
@@ -52,6 +62,8 @@ public class App
     public Set<Class<?>> getClasses() {
         Set<Class<?>> sets = new HashSet<>(Configuration.getNumberOfUtilClasses());
         sets.add(RuntimeExceptionMapper.class);
+        sets.add(GsonProvider.class);
+        sets.add(CSVParser.class);
         return sets;
     }
 

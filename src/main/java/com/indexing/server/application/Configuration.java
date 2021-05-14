@@ -1,5 +1,5 @@
 /* package */
-package com.indexing.application;
+package com.indexing.server.application;
 
 /* On-Demand Imports */
 
@@ -40,6 +40,21 @@ final class Configuration {
         return NUMBER_OF_UTIL_CLASSES;
     }
 
+
+    /**
+     * @return String
+     */
+    static String getMaster() {return "Master";}
+
+    /**
+     * @return String
+     */
+    static String getSlave() {return "Slave";}
+
+    /**
+     *
+     * @return String
+     */
     @Override
     public String toString() {
         return "Configuration : {\n" +

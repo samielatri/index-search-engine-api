@@ -1,7 +1,6 @@
 package com.indexing.service;
 
 import com.indexing.store.InvertedIndex;
-import com.indexing.store.Tuple;
 import org.glassfish.jersey.media.multipart.ContentDisposition;
 
 import java.io.BufferedReader;
