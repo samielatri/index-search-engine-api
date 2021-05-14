@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
  * Created bu PacLab
  * User: PacLab
  */
-
 public class QueryParser {
 
     protected static boolean validateQuery(String query) {

@@ -17,7 +17,6 @@ import javax.ws.rs.ext.Provider;
  * to the ExceptionMapper, implements ExceptionMapper<T> using RuntimeException
  * as the generic type.
  */
-
 @Provider
 public class RuntimeExceptionMapper
         implements ExceptionMapper<RuntimeException> {
